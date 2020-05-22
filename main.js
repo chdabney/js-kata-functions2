@@ -80,15 +80,34 @@ console.log('kata 4:', factorial(4))
 // 0  1  1  2  3  5  8  [13]  21
 // So, the number in brackets is the 8th Fibonacci number.
 
-function fibonacci(n) {
-    if (n <= 1) return 1;
+// function fibonacci(n) {
+//     if (n <= 1) return 1;
 
-    return add(n - 1, n - 2)
-}
+//     return add(n - 1, n - 2)
+// }
 
-console.log('kata 5:', fibonacci(8))
 
 //used below link as a guide
 //https://medium.com/developers-writing/fibonacci-sequence-algorithm-in-javascript-b253dc7e320e
 
 // this one is beyond me at the moment so I will return to it at a later date.
+
+function fibonacci(n) {
+    let a = 0
+    let b = 1
+    let c = null
+    if (n === 0) {
+        return a
+    }
+    for (let index = 3; index <= n; index = add(index, 1)) {
+        c = add(a, b)
+        a = b
+        b = c
+    }
+    return b
+}
+console.log('kata 5:', fibonacci(8))
+
+//got it to work
+// use below as a source
+//https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
